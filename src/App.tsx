@@ -1,6 +1,7 @@
 import { dummyTodoList } from './data/dummyTodoList';
 import { TodoList } from './components/TodoList';
 import { useState } from 'react';
+import { AddTodoForm } from './components/AddTodoForm';
 
 function App() {
   const [todoList, setTodoList] = useState(dummyTodoList);
@@ -8,10 +9,10 @@ function App() {
   const changeCompleted = (id: number) => {
     setTodoList((prevTodoList) => {
       return prevTodoList.map((todo) => {
-        if(todo.id === id) {
+        if (todo.id === id) {
           return {
             ...todo,
-            completed: !todo.completed
+            completed: !todo.completed,
           };
         }
 
@@ -20,9 +21,22 @@ function App() {
     });
   };
 
+  const addTodo = (title: string) => {
+    setTodoList((prevTodoList) => {
+      const newTodo = {
+        id: Date.now(),
+        title,
+        completed: false,
+      };
+
+      return [newTodo, ...prevTodoList];
+    });
+  };
+
   return (
     <main className="mx-auto mt-10 max-w-xl space-y-10">
       <h1 className=" text-4xl text-center">Todoアプリ</h1>
+      <AddTodoForm addTodo={addTodo} />
       <div className="rounded bg-slate-200 p-5">
         <TodoList todoList={todoList} changeCompleted={changeCompleted} />
       </div>
