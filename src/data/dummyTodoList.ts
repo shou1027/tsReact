@@ -1,4 +1,4 @@
-import { Todo } from '../assets/todo';
+import { Todo } from '../types/todo';
 
 export const dummyTodoList: Todo[] = [
   {

@@ -1,5 +1,5 @@
 import { Trash2 } from 'lucide-react';
-import { Todo } from '../assets/todo';
+import { Todo } from '../types/todo';
 
 type Props = {
   todoList: Todo[];
