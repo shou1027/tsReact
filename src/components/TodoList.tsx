@@ -31,14 +31,17 @@ export const TodoList = ({ todoList, changeCompleted, deleteTodo }: Props) => {
             </span>
           </label>
           <button
-            type='button'
-            className='rounded bg-gray-200 p-2 transition-colors hover:bg-gray-300'
+            type="button"
+            className="rounded bg-gray-200 p-2 transition-colors hover:bg-gray-300"
             onClick={() => deleteTodo(todo.id)}
           >
-            <Trash2 className='size-5 text-gray-500' />
+            <Trash2 className="size-5 text-gray-500" />
           </button>
         </div>
       ))}
+      {todoList.length === 0 && (
+        <p className="text-center text-sm">Todoがありません</p>
+      )}
     </div>
   );
 };

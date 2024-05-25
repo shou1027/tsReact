@@ -37,9 +37,9 @@ function App() {
     setTodoList((prevTodoList) => {
       return prevTodoList.filter((todo) => {
         return todo.id != id;
-      })
-    })
-  }
+      });
+    });
+  };
 
   return (
     <main className="mx-auto mt-10 max-w-xl space-y-10">
